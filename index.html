@@ -39,11 +39,11 @@
                             <div class="calc-button-row">
                                 <div class="button"><</div>
                                 <div class="button" id="zero">0</div>
-                                <div class="button">C</div>
+                                <div class="button" id="clear">C</div>
                             </div>
                             <div>
                                 <button type="submit" class="submit-btn" id="Submit">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p class="action-left" style="display: none;">3 try left</p>
                             </div>
                     </div>
                 </div>
@@ -122,7 +122,15 @@
                          PinInput.value=PinInput.value +  number.innerText ;     
                         
                      }
-     
+
+
+
+                        //  Code For Bonus Mark ........   clear screen and clear last digit 
+
+                        const clear = document.getElementById("clear");
+                        clear.addEventListener("click",function(){
+                            document.getElementById("pinInputDisplay").value="";
+                        })
 
 
     
@@ -147,6 +155,10 @@
                             WrongMatch.style.display="block";
                             matched.style.display="none"; 
                             }
+
+                            document.getElementById("pinInputDisplay").value="";
+                            document.getElementById("generateDisplay").value="";
+            
                       })
 
     </script>
