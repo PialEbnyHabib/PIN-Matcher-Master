@@ -37,7 +37,7 @@
                               <div class="button" id="three">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button"><</div>
+                                <div class="button" id="backspace"><</div>
                                 <div class="button" id="zero">0</div>
                                 <div class="button" id="clear">C</div>
                             </div>
@@ -125,13 +125,26 @@
 
 
 
-                        //  Code For Bonus Mark ........   clear screen and clear last digit 
 
+                        //   ***.....Code For BONUS Mark ...***
+                        //    Clear screen and Clear last Digit  
+                       
                         const clear = document.getElementById("clear");
                         clear.addEventListener("click",function(){
                             document.getElementById("pinInputDisplay").value="";
                         })
 
+
+                        const backspace=document.getElementById("backspace");
+                        backspace.addEventListener("click",function(){
+                         const Nowshowing =document.getElementById("pinInputDisplay").value;
+                         const AfterBackspace = Nowshowing.slice(0,-1);
+                         document.getElementById("pinInputDisplay").value=AfterBackspace ;
+
+                        })
+
+                    
+                        
 
     
 
