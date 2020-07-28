@@ -36,6 +36,9 @@ body {
     font-size: 20px;
     text-align: center;
 }
+.generate-btn:hover{
+    background-color: #39458C;
+}
 .generate-btn:focus{
     outline: none;
     box-shadow: none;
@@ -83,6 +86,9 @@ vertical-align: middle;
 margin-right: -4px;
 border-radius: 10px;
 cursor: pointer;
+}
+.button:hover{
+    background-color: rgb(228, 136, 120);
 }
 .blink-me {
 color: #E0B612;
