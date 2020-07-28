@@ -119,7 +119,10 @@
                     
                         function Displayinputpin(number){ 
                         const PinInput=document.getElementById("pinInputDisplay"); 
+                        if(PinInput.value.length<=3){
                          PinInput.value=PinInput.value +  number.innerText ;     
+                        }
+                         console.log(PinInput.value.length);
                         
                      }
 
