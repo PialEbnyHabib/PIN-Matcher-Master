@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="pin-generator half-width">
+                    <input  class="form-control" id="generateDisplay" type="text">
+                    <button class="generate-btn" id="generateclick" >Generate Pin</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-section half-width">
+                    <input class="form-control" id="pinInputDisplay" type="text">
+                    <div class="numbers">
+                        <div class="calc-body">
+                            <div class="calc-button-row">
+                              <div class="button" id="seven">7</div>
+                              <div class="button" id="eight">8</div>
+                              <div class="button" id="nine">9</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div class="button" id="four">4</div>
+                              <div class="button" id="five">5</div>
+                              <div class="button" id="six">6</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div class="button" id="one">1</div>
+                              <div class="button" id="two">2</div>
+                              <div class="button" id="three">3</div>
+                            </div>
+                            <div class="calc-button-row">
+                                <div class="button"><</div>
+                                <div class="button" id="zero">0</div>
+                                <div class="button">C</div>
+                            </div>
+                            <div>
+                                <button type="submit" class="submit-btn" id="Submit">Submit</button>
+                                <p class="action-left">3 try left</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notify-section">
+            <p class="notify" id="WrongMatch">❌ Pin Didn't Match, Please try again</p>
+            <p class="notify" id="matched">✅ Pin Matched... Secret door is opening for you</p>
+        </div>
+    </div>
+
+
+                                    
+    <script>
+
+                        // Code for  ( -Generate PIN- ) part .  
+            
+                            var pinset=document.getElementById('generateclick');
+                            pinset.addEventListener("click",function(){
+                                
+                                let displayFloatpin =Math.random() * 10000;
+                                let displayPin = Math.round(displayFloatpin);
+                                let generateCodeDisplay = String(displayPin);
+
+                                if(generateCodeDisplay.length==4){
+                                    document.getElementById("generateDisplay").value=generateCodeDisplay; 
+                                    }      
+                        })
+
+
+
+                                  // Code for (-Matching pin-) part
+
+                    // Declareing variable for each input section button ID 
+
+
+                    const one=document.getElementById("one");
+                    setPinNumber(one);
+                    const two=document.getElementById("two");
+                    setPinNumber(two);
+                    const three=document.getElementById("three");
+                    setPinNumber(three);
+                    const four=document.getElementById("four");
+                    setPinNumber(four);
+                    const five=document.getElementById("five");
+                    setPinNumber(five);
+                    const six=document.getElementById("six");
+                    setPinNumber(six);
+                    const seven=document.getElementById("seven");
+                    setPinNumber(seven);
+                    const eight=document.getElementById("eight");
+                    setPinNumber(eight);
+                    const nine=document.getElementById("nine");
+                    setPinNumber(nine);
+                    const zero=document.getElementById("zero");
+                    setPinNumber(zero); 
+
+                   
+
+                    // Function that set Button  ID for displaying it on screen
+
+
+                    function setPinNumber(id){
+                    id.addEventListener("click",function(){
+                        Displayinputpin(id); 
+                    })
+                }
+
+
+                    
+                       
+                    //    Function for Displaying button number on input screen
+                    
+                        function Displayinputpin(number){ 
+                        const PinInput=document.getElementById("pinInputDisplay"); 
+                         PinInput.value=PinInput.value +  number.innerText ;     
+                        
+                     }
+     
+
+
+    
+
+                    //  Cheacking whether genarate number and input number is same 
+
+                      const sumbit=document.getElementById("Submit"); 
+                      sumbit.addEventListener("click",function(){
+                         const GenerateSectionNumber = document.getElementById("generateDisplay").value;
+                        const InputSectionNumber = document.getElementById("pinInputDisplay").value;
+
+                        const matched=document.getElementById("matched");
+                        const WrongMatch=document.getElementById("WrongMatch");
+
+
+                            if(GenerateSectionNumber == InputSectionNumber){
+                            matched.style.display="block";  
+                            WrongMatch.style.display="none";
+                           }
+
+                            else{  
+                            WrongMatch.style.display="block";
+                            matched.style.display="none"; 
+                            }
+                      })
+
+    </script>
+</body>
+</html>
