@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <button type="submit" class="submit-btn" id="Submit">Submit</button>
-                                <p class="action-left" style="display: none;">3 try left</p>
+                                <p class="action-left" id="TryLeft"> <span id="TryNumber">3</span> try left</p>
                             </div>
                     </div>
                 </div>
@@ -122,8 +122,7 @@
                         if(PinInput.value.length<=3){
                          PinInput.value=PinInput.value +  number.innerText ;     
                         }
-                         console.log(PinInput.value.length);
-                        
+                          
                      }
 
 
@@ -166,11 +165,16 @@
                             matched.style.display="block";  
                             WrongMatch.style.display="none";
                            }
+                           
+                        
+                            else {  
+                               
+                             WrongMatch.style.display="block";
+                             matched.style.display="none"; 
+                             
+                            } 
 
-                            else{  
-                            WrongMatch.style.display="block";
-                            matched.style.display="none"; 
-                            }
+                           
 
                             document.getElementById("pinInputDisplay").value="";
                             document.getElementById("generateDisplay").value="";
