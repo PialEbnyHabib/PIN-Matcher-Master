@@ -160,10 +160,14 @@
                         const matched=document.getElementById("matched");
                         const WrongMatch=document.getElementById("WrongMatch");
 
-
+                        
                             if(GenerateSectionNumber == InputSectionNumber){
                             matched.style.display="block";  
                             WrongMatch.style.display="none";
+
+                            
+                            const HideTryleft = document.getElementById("TryLeft") ;
+                            HideTryleft.style.display="none" ; 
                            }
                            
                         
@@ -171,15 +175,38 @@
                                
                              WrongMatch.style.display="block";
                              matched.style.display="none"; 
-                             
-                            } 
 
+                             tryleft();
+
+                            } 
+                                                         
                            
 
                             document.getElementById("pinInputDisplay").value="";
                             document.getElementById("generateDisplay").value="";
             
                       })
+
+     
+     
+                                
+                                //  function for Tryleft calculation 
+                      
+                      function tryleft (){
+                                let tryNumber=document.getElementById("TryNumber").innerText;
+                               const tryDisplay = document.getElementById("TryLeft"); 
+                               tryDisplay.style.display="block";
+                               let tryNumberValue=parseFloat(tryNumber);
+                               tryNumberValue=tryNumberValue-1; 
+                               tryNumber = String(tryNumberValue); 
+                               document.getElementById("TryNumber").innerText =tryNumber;
+
+                               if (tryNumberValue==0){
+                                   const submitButton=document.getElementById("Submit"); 
+                                   submitButton.style.display="none";
+                               }
+
+                                }  
 
     </script>
 </body>
